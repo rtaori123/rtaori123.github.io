@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raghav Taori</title>
+<meta name="description" content="Raghav Taori, data and BI analyst: SQL, Python and Power BI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF; --surface:#F5F7FA; --card:#FFFFFF; --ink:#0F172A; --muted:#556072;
+  --rule:#E2E7EE; --accent:#2257D6; --accent-soft:#EAF0FD; --good:#157A55;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1120; --surface:#0F1729; --card:#131D33; --ink:#E7ECF4; --muted:#9AA5B8;
+    --rule:#223050; --accent:#79A2FF; --accent-soft:#1A2848; --good:#4CC99A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1120; --surface:#0F1729; --card:#131D33; --ink:#E7ECF4; --muted:#9AA5B8;
+  --rule:#223050; --accent:#79A2FF; --accent-soft:#1A2848; --good:#4CC99A; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans)}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;flex-wrap:wrap;padding-block:8px}
+.brand{font-weight:800;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.nav nav{display:flex;gap:22px;flex-wrap:wrap;font-size:14.5px;font-weight:600}
+.nav nav a{color:var(--muted)}
+.nav nav a:hover{color:var(--ink);text-decoration:none}
+
+/* hero */
+.hero{padding-block:72px 56px}
+.hero .kicker{display:inline-block;font-size:13px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:5px 10px;border-radius:999px;margin-bottom:20px}
+h1{font-size:clamp(38px,6vw,58px);line-height:1.05;letter-spacing:-.03em;font-weight:800;margin:0 0 18px;text-wrap:balance}
+.hero p.sub{font-size:clamp(18px,2.2vw,21px);color:var(--muted);max-width:40em;margin:0 0 28px;line-height:1.5}
+.hero p.sub strong{color:var(--ink);font-weight:600}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px/1 var(--sans);padding:12px 18px;border-radius:8px;border:1px solid var(--rule);color:var(--ink);background:var(--card);cursor:pointer}
+.btn:hover{border-color:var(--accent);text-decoration:none}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#0B1120}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{color:#0B1120}}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:12px;overflow:hidden;margin-top:48px}
+.stat{background:var(--card);padding:20px 22px}
+.stat b{display:block;font:500 28px/1.1 var(--mono);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;color:var(--muted);line-height:1.4;display:block;margin-top:6px}
+
+/* sections */
+section{padding-block:64px;border-top:1px solid var(--rule)}
+section.alt{background:var(--surface)}
+.head{margin-bottom:32px;max-width:44em}
+.head .label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin:0 0 8px}
+.head h2{font-size:clamp(26px,3.4vw,34px);line-height:1.15;letter-spacing:-.02em;font-weight:800;margin:0 0 10px}
+.head p{margin:0;color:var(--muted);font-size:17px}
+
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:26px;display:flex;flex-direction:column;gap:14px}
+.card h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:700;margin:0}
+.card dl{margin:0;display:grid;gap:10px}
+.card dt{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.card dd{margin:2px 0 0;font-size:15.5px;line-height:1.55}
+.result{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--rule);margin-top:auto}
+.result b{font:500 24px/1 var(--mono);color:var(--good);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.result span{font-size:14.5px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.tags li{font-size:12.5px;font-weight:600;color:var(--muted);background:var(--surface);border:1px solid var(--rule);padding:4px 9px;border-radius:999px}
+section.alt .tags li{background:var(--bg)}
+.card .link{font-weight:700;font-size:15px}
+
+/* experience */
+.xp{display:grid;gap:0;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--card)}
+.xp-row{display:grid;grid-template-columns:190px minmax(0,1fr);gap:28px;padding:22px 26px;border-top:1px solid var(--rule)}
+.xp-row:first-child{border-top:0}
+.xp-row .when{font-size:14px;color:var(--muted);font-weight:600;font-variant-numeric:tabular-nums}
+.xp-row h3{margin:0;font-size:17px;font-weight:700}
+.xp-row .role{margin:2px 0 6px;color:var(--muted);font-size:15px}
+.xp-row p{margin:0;font-size:15.5px;max-width:62ch}
+
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px}
+.skills div{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:20px 22px}
+.skills h3{margin:0 0 6px;font-size:15px;font-weight:700}
+.skills p{margin:0;font-size:15px;color:var(--muted)}
+
+.contact{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+.contact .item{display:flex;flex-direction:column;gap:2px;background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px 20px;min-width:0}
+.contact .item span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.contact .item b{font-weight:600;font-size:16px;user-select:all;word-break:break-word}
+footer{padding-block:28px;border-top:1px solid var(--rule);color:var(--muted);font-size:13.5px}
+
+@media (max-width:860px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid,.skills{grid-template-columns:1fr}
+  .xp-row{grid-template-columns:1fr;gap:6px}
+  .hero{padding-block:48px 40px}
+  section{padding-block:48px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Raghav Taori</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <span class="kicker">Open to Data &amp; BI Analyst roles · US</span>
+    <h1>I turn messy business data into reports people can trust.</h1>
+    <p class="sub">I'm a <strong>Product Data Analyst at Dometic</strong>, working in <strong>SQL, Python and Power BI</strong>. I build automated data pipelines and dashboards, and I dig in when a number doesn't look right. Before this I spent two years in BI and analytics at Hewlett Packard Enterprise. MS, Purdue University.</p>
+    <div class="btns">
+      <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">View resume</a>
+      <a class="btn" href="https://linkedin.com/in/raghav-taori/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/rtaori123" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="#contact">Contact</a>
+    </div>
+
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><b>8M+</b><span>sales records modeled in SQL and Power BI</span></div>
+      <div class="stat" role="listitem"><b>17,800</b><span>products price-tracked every week, automatically</span></div>
+      <div class="stat" role="listitem"><b>3.3×</b><span>faster data pipeline after my rebuild</span></div>
+      <div class="stat" role="listitem"><b>5×</b><span>reporting error I found and fixed</span></div>
+    </div>
+  </div>
+
+  <section id="work" class="alt">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Work at Dometic</p>
+        <h2>What I've built on the job</h2>
+        <p>Dometic makes products for boats, RVs and outdoor living. I work on the data behind pricing and product decisions for its marine replacement-parts business.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Automated competitor price tracking</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>The team compared our prices with competitors' by hand, one product at a time.</dd></div>
+            <div><dt>What I built</dt><dd>A Python pipeline that collects competitor prices for 17,800 products from 8 sources every week, matches them to our catalog, and loads the results into a SQL Server database feeding a Power BI dashboard. It runs on a schedule and sends alerts if it fails.</dd></div>
+          </dl>
+          <ul class="tags"><li>Python</li><li>SQL Server</li><li>Power BI</li><li>Automation</li></ul>
+          <div class="result"><b>236 → 72 min</b><span>weekly run time after adding parallel processing</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Fixing a sales report that counted sales several times</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>When sales were split by engine brand, the same sale was counted more than once, so brand revenue looked about 5 times bigger than it was.</dd></div>
+            <div><dt>What I built</dt><dd>A new data model over 8 million+ sales records that assigns each sale to brands exactly once, with a Power BI report on top.</dd></div>
+          </dl>
+          <ul class="tags"><li>SQL</li><li>Power BI</li><li>DAX</li><li>Data modeling</li></ul>
+          <div class="result"><b>Standard view</b><span>now the company's official sales-by-brand report</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Finding why customer searches came up empty</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Dealers order parts through our website, and many of their searches returned nothing.</dd></div>
+            <div><dt>What I found</dt><dd>35% of 265,000 searches returned no results. I sorted 20,000 of the failed searches into three causes: old part numbers that were never redirected, website search bugs, and parts we simply don't sell.</dd></div>
+          </dl>
+          <ul class="tags"><li>Python</li><li>SQL</li><li>Analysis</li></ul>
+          <div class="result"><b>2,534</b><span>unmet customer requests turned into a ranked list of products to add</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Checking the numbers before leadership acts on them</h3>
+          <dl>
+            <div><dt>Margin</dt><dd>A reported multi-year drop in profit margin wasn't real. It came from invoice lines with missing costs. With those excluded, margin was flat.</dd></div>
+            <div><dt>Market data</dt><dd>A vendor's estimate of how many engines of each brand are in use was off. I checked it against 134,000 real state boat registrations and found one major brand undercounted threefold.</dd></div>
+          </dl>
+          <ul class="tags"><li>Data validation</li><li>Root-cause analysis</li><li>SQL</li></ul>
+          <div class="result"><b>Corrected</b><span>what leadership was told about margin and market share</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Price comparisons for product lines that had none</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Two product lines had no competitor price data at all.</dd></div>
+            <div><dt>What I built</dt><dd>For one line, I verified 1,015 matching competitor parts and found we were cheaper in 103 of 115 head-to-head comparisons. For the other, I used the eBay API to price parts no specialist retailer carried.</dd></div>
+          </dl>
+          <ul class="tags"><li>Python</li><li>REST APIs</li><li>Matching</li></ul>
+          <div class="result"><b>99.9%</b><span>of 9,700 parts priced using the eBay API</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Dashboards for product managers (internship)</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Product managers had raw parts data but no quick way to see gaps in the range.</dd></div>
+            <div><dt>What I built</dt><dd>Gathered their requirements, sorted the raw data into product categories, and built Power BI dashboards to decide which new products to launch. I also compared 5,000+ competitor products to find gaps we could fill.</dd></div>
+          </dl>
+          <ul class="tags"><li>Power BI</li><li>Requirements</li><li>Excel</li></ul>
+          <div class="result"><b>7+ dashboards</b><span>and 220 product gaps identified</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Personal projects</p>
+        <h2>Things I've built on my own time</h2>
+        <p>Each one has a real user: a trading client, and a family steel-supply business in Nagpur, India.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Stock strategy backtester</h3>
+          <dl>
+            <div><dt>What it does</dt><dd>Lets you test a trading idea on 500 Indian stocks using past data before risking real money. It shows every buy and sell, the profit curve against simply holding the stock, and the worst losses along the way, and it ranks which stocks the strategy works best on.</dd></div>
+          </dl>
+          <ul class="tags"><li>Python</li><li>Pandas</li><li>Streamlit</li></ul>
+          <div class="result"><b>500 stocks</b><span>built for an external trading client</span></div>
+          <a class="link" href="https://github.com/rtaori123/nse-strategy-backtester" target="_blank" rel="noopener">View code on GitHub →</a>
+        </article>
+
+        <article class="card">
+          <h3>Sales lead finder from public construction data</h3>
+          <dl>
+            <div><dt>What it does</dt><dd>Reads the government's public registry of construction projects, finds builders who will soon need steel, and ranks them by priority and by how safe it is to give them credit. It only targets areas close enough for delivery to be profitable.</dd></div>
+          </dl>
+          <ul class="tags"><li>Python</li><li>PostgreSQL</li><li>Web data</li></ul>
+          <div class="result"><b>5,297</b><span>builder contacts ranked into 4 priority tiers</span></div>
+        </article>
+
+        <article class="card">
+          <h3>WhatsApp outreach tool</h3>
+          <dl>
+            <div><dt>What it does</dt><dd>Sends approved business messages to a contact list and tracks what happens to each one: delivered, read, replied or unsubscribed. The results land in a cloud database for reporting.</dd></div>
+          </dl>
+          <ul class="tags"><li>Python</li><li>PostgreSQL</li><li>WhatsApp API</li><li>Webhooks</li></ul>
+          <div class="result"><b>72%</b><span>of messages read in the first campaign</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Business website, English &amp; Hindi</h3>
+          <dl>
+            <div><dt>What it is</dt><dd>A marketing website for the steel business, available in two languages, hosted on GitHub Pages with its own domain.</dd></div>
+          </dl>
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+          <div class="result"><b>Live</b><span>manishsteeltraders.com</span></div>
+          <a class="link" href="https://manishsteeltraders.com" target="_blank" rel="noopener">Visit the site →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="alt">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Experience</p>
+        <h2>Where I've worked</h2>
+      </div>
+      <div class="xp">
+        <div class="xp-row"><span class="when">May 2026 – Present</span>
+          <div><h3>Dometic</h3><p class="role">Product Data Analyst · Litchfield, IL</p>
+          <p>Pricing and product data: pipelines, data models, dashboards and data checks.</p></div></div>
+        <div class="xp-row"><span class="when">Jun 2025 – Jan 2026</span>
+          <div><h3>Dometic</h3><p class="role">Product Data Analyst, Intern</p>
+          <p>Power BI dashboards and competitor research for product managers.</p></div></div>
+        <div class="xp-row"><span class="when">Mar 2022 – May 2024</span>
+          <div><h3>Hewlett Packard Enterprise</h3><p class="role">Software Engineer (Business Intelligence &amp; Analytics) · Bengaluru, India</p>
+          <p>Analyzed server usage data in SQL to forecast demand, finding a path to cut energy costs by 15%. Built automated tests for 50+ system connections, which cut production defects by 35%.</p></div></div>
+        <div class="xp-row"><span class="when">May 2021 – Jan 2022</span>
+          <div><h3>Cartzon</h3><p class="role">Co-founder &amp; Business Strategy Analyst · Bengaluru, India</p>
+          <p>Launched a student marketplace for 5,000+ college students and signed 40 paying customers in 3 months.</p></div></div>
+        <div class="xp-row"><span class="when">Jan 2021 – Mar 2021</span>
+          <div><h3>Exclusive Securities</h3><p class="role">Analyst · Nagpur, India</p>
+          <p>Checked manually entered stock-trade records against official brokerage statements using Python.</p></div></div>
+      </div>
+
+      <div class="skills">
+        <div><h3>Data &amp; reporting</h3><p>SQL Server, PostgreSQL, Power BI, DAX, Excel</p></div>
+        <div><h3>Programming</h3><p>Python (Pandas, NumPy), APIs, automated pipelines</p></div>
+        <div><h3>Education</h3><p>MS Engineering Management, Purdue (2026, GPA 3.77)<br>BE Computer &amp; Information Science, R.V. College of Engineering (2022)</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Contact</p>
+        <h2>Let's talk</h2>
+        <p>I'm open to data and BI analyst roles anywhere in the US.</p>
+      </div>
+      <div class="contact">
+        <div class="item"><span>Email</span><b id="email">raghav.taori1504@gmail.com</b></div>
+        <div class="item"><span>Phone</span><b>(765) 772-8095</b></div>
+        <div class="item"><span>LinkedIn</span><a href="https://linkedin.com/in/raghav-taori/" target="_blank" rel="noopener"><b>linkedin.com/in/raghav-taori</b></a></div>
+        <div class="item"><span>GitHub</span><a href="https://github.com/rtaori123" target="_blank" rel="noopener"><b>github.com/rtaori123</b></a></div>
+      </div>
+      <div class="btns" style="margin-top:16px"><button class="btn" id="copy-email" type="button">Copy email address</button></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© 2026 Raghav Taori</div></footer>
+
+<script>
+document.getElementById('copy-email').addEventListener('click', function () {
+  var btn = this, el = document.getElementById('email');
+  function done(msg){ btn.textContent = msg; setTimeout(function(){ btn.textContent = 'Copy email address'; }, 1800); }
+  function fallback(){ var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected. Press Ctrl+C'); }
+  try { navigator.clipboard.writeText(el.textContent).then(function(){ done('Copied'); }, fallback); } catch (e) { fallback(); }
+});
+</script>
+</body>
+</html>
