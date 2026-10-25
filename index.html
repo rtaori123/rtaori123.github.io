@@ -112,7 +112,6 @@ footer{padding-block:28px;border-top:1px solid var(--rule);color:var(--muted);fo
 </style>
 </head>
 <body>
-
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top">Raghav Taori</a>
@@ -174,6 +173,36 @@ footer{padding-block:28px;border-top:1px solid var(--rule);color:var(--muted);fo
         </article>
 
         <article class="card">
+          <h3>Linking parts to the engines they fit</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Dealers find parts by engine model, but thousands of parts weren't linked to the engines they fit. An automated match looked like it could fill the gap.</dd></div>
+            <div><dt>What I found and fixed</dt><dd>One engine maker reuses serial-number ranges across different models. That made 34,000 serial-only matches wrong, and one engine was linked to 12 models. I rebuilt the matching so that serial range, horsepower and model name all have to agree, and I put borderline cases in a separate list for review.</dd></div>
+          </dl>
+          <ul class="tags"><li>SQL</li><li>Python</li><li>Data quality</li><li>Excel</li></ul>
+          <div class="result"><b>50,000+</b><span>checked part-to-engine links ready for a bulk upload</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Why some parts keep selling and others fade</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Within a single product line, some parts grow while others decline, and nobody knew why.</dd></div>
+            <div><dt>What I built</dt><dd>A reusable tool that scores about 30 possible factors per part (price compared with the engine maker's, age of the engines it fits, how many maker part numbers it replaces, and more). It then tests which factors actually predict sales, each time leaving out the part being predicted. I ran it on fuel pumps, oil filters and gas filters, and I reported where a pattern did not carry over from one product line to another.</dd></div>
+          </dl>
+          <ul class="tags"><li>Python</li><li>Statistics</li><li>Regression</li><li>SQL</li></ul>
+          <div class="result"><b>3 product lines</b><span>Filters follow engine age; fuel pumps follow price</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Finding parts missing from our catalog data</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>We had no way to tell which of an engine maker's parts our own data was missing.</dd></div>
+            <div><dt>What I built</dt><dd>A Python collector for the maker's public online parts catalog that can resume after interruptions. It read every outboard diagram and compared each part number with our database.</dd></div>
+          </dl>
+          <ul class="tags"><li>Python</li><li>Web data</li><li>SQL Server</li></ul>
+          <div class="result"><b>21,965</b><span>missing part numbers found across 1.37M catalog lines, with 0 errors</span></div>
+        </article>
+
+        <article class="card">
           <h3>Finding why customer searches came up empty</h3>
           <dl>
             <div><dt>Problem</dt><dd>Dealers order parts through our website, and many of their searches returned nothing.</dd></div>
@@ -191,6 +220,26 @@ footer{padding-block:28px;border-top:1px solid var(--rule);color:var(--muted);fo
           </dl>
           <ul class="tags"><li>Data validation</li><li>Root-cause analysis</li><li>SQL</li></ul>
           <div class="result"><b>Corrected</b><span>what leadership was told about margin and market share</span></div>
+        </article>
+
+        <article class="card">
+          <h3>One agreed number for aftermarket sales</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Aftermarket sales were spread over several sites and customer systems. Some sales were counted twice, so different reports gave different totals.</dd></div>
+            <div><dt>What I built</dt><dd>Clear rules for which customers count, product segments, and a fix for one site's billing to another that was being counted twice. The result is a year-to-date and six-year report for a director, with every definition written down.</dd></div>
+          </dl>
+          <ul class="tags"><li>Power BI</li><li>DAX</li><li>Python</li><li>Excel</li></ul>
+          <div class="result"><b>To the cent</b><span>matches the data warehouse</span></div>
+        </article>
+
+        <article class="card">
+          <h3>Pricing by how well a product sells</h3>
+          <dl>
+            <div><dt>Question</dt><dd>Do our best-selling parts get priced differently from slow sellers compared with the engine maker's own part?</dd></div>
+            <div><dt>What I found and built</dt><dd>Best sellers sit 8.5% below the maker's price, against 3% for slow sellers. That held across all five competitor data sources, even after dropping weaker matches. I then built a tool that suggests next year's prices against a checked maker's price, with limits on margin and on how much a price can change.</dd></div>
+          </dl>
+          <ul class="tags"><li>Python</li><li>Statistics</li><li>Pricing</li></ul>
+          <div class="result"><b>8.5% vs 3%</b><span>below the maker's price, best sellers vs slow sellers</span></div>
         </article>
 
         <article class="card">
@@ -272,6 +321,9 @@ footer{padding-block:28px;border-top:1px solid var(--rule);color:var(--muted);fo
         <h2>Where I've worked</h2>
       </div>
       <div class="xp">
+        <div class="xp-row"><span class="when">2026 – Present</span>
+          <div><h3>eVidyaloka</h3><p class="role">Volunteer English Teacher · Remote</p>
+          <p>I teach English online to a Class 8 class at a government school in rural Uttar Pradesh, India. I make bilingual Hindi and English lesson decks, with a game in every class, for students still building the basics.</p></div></div>
         <div class="xp-row"><span class="when">May 2026 – Present</span>
           <div><h3>Dometic</h3><p class="role">Product Data Analyst · Litchfield, IL</p>
           <p>Pricing and product data: pipelines, data models, dashboards and data checks.</p></div></div>
